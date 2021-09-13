@@ -1,0 +1,6 @@
+<h2>Introduce la palabra correcta</h2>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <input formControlName="word_secret" class="input" type="text">
+  <button [disabled]="form.invalid" type="submit">Enviar</button>
+</form>

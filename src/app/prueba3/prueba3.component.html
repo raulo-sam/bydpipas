@@ -1,0 +1,19 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <h2>Prueba 3 Si el tercer numero quereistener este acertijo debeis responder
+  </h2>
+  <h4> Entra duro y grande en la boca, pero sale blando y pequeño. ¿Qué es?
+  </h4>
+  <input formControlName="inputAcertijo1" type="text" name="" value="">
+  <h4>
+    Lo levanto cuando estoy contento, pero es más pequeño que el resto. ¿Qué es?
+  </h4>
+  <input formControlName="inputAcertijo2" type="text" name="" value="">
+  <h4>
+    La señora y el señor Sánchez tienen 6 hijos. Cada hijo tiene una hermana. ¿Cuántas personas hay en la familia
+    Sánchez?
+  </h4>
+  <input formControlName="inputAcertijo3" type="text" name="" value="">
+  <small *ngIf="disabled">Has fallado tienes que esperar {{segundos}} para fastidiar un poco jajajaj</small>
+  <button [disabled]="disabled" type="submit">Comprobar</button>
+  <button [disabled]="disabled" type="submit">Comprobar</button>
+</form>

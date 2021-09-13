@@ -1,0 +1,17 @@
+
+
+1. introducir la palabra correcta y da acceso a las pruebas para los digitos del candao
+2.aparecen las instrucciones de las pruebas
+3.pruebas
+  3.1 Prueba1 una super mega cuenta de matematicas y el resultado muestra el primero digitos
+  3.2 prueba 2 Si el segundo numero quereis tener el bote quitaholores del mercadona debeis tener.
+  3.2 Prueba 3 Si el tercer numero quereistener este acertijo debeis responder 
+      Entra duro y grande en la boca, pero sale blando y pequeño. ¿Qué es?
+      -Un chicle
+      Lo levanto cuando estoy contento, pero es más pequeño que el resto. ¿Qué es?  -El pulgar
+     La señora y el señor Sánchez tienen 6 hijos. Cada hijo tiene una hermana. ¿Cuántas personas hay en la familia Sánchez?
+        - 9 personas: cada hijo tiene la misma hermana, por lo que hay 6 hijos, una hija y dos padres.
+    
+
+
+
