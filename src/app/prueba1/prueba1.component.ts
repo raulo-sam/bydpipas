@@ -10,7 +10,7 @@ export class Prueba1Component implements OnInit {
 
 
   form: FormGroup;
-  resultado: number = 1234;
+  resultado: string = "280A23x47t5l9823h74eq509R23847f5023984y752039zZb8457mN203Ds985732w2039y8479485";
 
   constructor(private fb: FormBuilder,
     private s: ServicioService,
@@ -20,21 +20,44 @@ export class Prueba1Component implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      inputResultado: ['1234',]
+      inputResultado: ['280A23x47t5l9823h74eq509R23847f5023984y752039zZb8457mN203Ds985732w2039y8479485',]
     })
-
-
+    this.s.mostrarPipaTocahuevos();
+    console.log(this.resultado)
   }
 
   onSubmit() {
-    if (this.form.controls.inputResultado.invalid) return;
+    if (this.form.controls.inputResultado.value === this.resultado) {
+      this.s.mostrarPrueba1 = false;
+      this.s.mostrarPrueba2 = true;
+      this.s.passPrueba1();
+    }
     else {
-      if (this.form.controls.inputResultado.value == this.resultado) {
-        console.log(typeof this.form.controls.inputResultado.value)
-        this.s.prueba1 = true;
-      }
+      this.s.ocultarPipaTocahuevos();
+ this.s.mostrarFalloBob();
     }
   }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

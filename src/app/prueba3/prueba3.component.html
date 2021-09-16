@@ -1,19 +1,52 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="form">
-  <h2>Prueba 3 Si el tercer numero quereistener este acertijo debeis responder
+<h3 class="text-center tittle">
+  3ºPrueba
+</h3>
+<h3 class="text-center tittle">
+  Resolver estos acertijos facilitos
+</h3>
+<form class="form container" #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="form">
+  <h2 class="tittle"> 1º ¿que esta comiendo el pollito amarillo?
   </h2>
-  <h4> Entra duro y grande en la boca, pero sale blando y pequeño. ¿Qué es?
-  </h4>
-  <input formControlName="inputAcertijo1" type="text" name="" value="">
-  <h4>
-    Lo levanto cuando estoy contento, pero es más pequeño que el resto. ¿Qué es?
-  </h4>
-  <input formControlName="inputAcertijo2" type="text" name="" value="">
-  <h4>
-    La señora y el señor Sánchez tienen 6 hijos. Cada hijo tiene una hermana. ¿Cuántas personas hay en la familia
-    Sánchez?
-  </h4>
-  <input formControlName="inputAcertijo3" type="text" name="" value="">
-  <small *ngIf="disabled">Has fallado tienes que esperar {{segundos}} para fastidiar un poco jajajaj</small>
-  <button [disabled]="disabled" type="submit">Comprobar</button>
-  <button [disabled]="disabled" type="submit">Comprobar</button>
+  <!-- <p style="color:red" *ngIf="!acertijo1.acertado && f.submitted "> -->
+  <!--   Nop  -->
+  <!-- </p> -->
+  <!-- <p style="color:green"*ngIf="acertijo1.acertado && f.submitted "> -->
+  <!--   Bien!! -->
+  <!-- </p> -->
+<!--   <mat-form-field class="form-width text-center"> -->
+<!--     <mat-label class="label text-center">Escribe aquí</mat-label> -->
+<!--     <input matInput class="input" formControlName="inputAcertijo1" type="text" name="" value=""> -->
+<!--   </mat-form-field> -->
+
+<!--   <h2 class="tittle"> -->
+<!--     Lo levanto cuando estoy contento, pero es más pequeño que el resto. ¿Qué es? -->
+<!--   </h2> -->
+<!--   <p style="color:red" *ngIf="!acertijo2.acertado && f.submitted "> -->
+<!--     Nop  -->
+<!--   </p> -->
+<!--   <p style="color:green"*ngIf="acertijo2.acertado && f.submitted "> -->
+<!--     Bien!! -->
+<!--   </p> -->
+<!--   <mat-form-field class="form-width text-center"> -->
+<!--     <mat-label class="label text-center">Escribe aquí</mat-label> -->
+<!--     <input matInput class="input" formControlName="inputAcertijo2" type="text" name="" value=""> -->
+<!--   </mat-form-field> -->
+
+<!--   <h2 class="tittle"> -->
+<!--     La señora y el señor Sánchez tienen 6 hijos. Cada hijo tiene una hermana. ¿Cuántas personas hay en la familia -->
+<!--     Sánchez? -->
+<!--   </h2> -->
+<!--   <p style="color:red" *ngIf="!acertijo3.acertado && f.submitted "> -->
+<!--     Nop  -->
+<!--   </p> -->
+<!--   <p style="color:green"*ngIf="acertijo3.acertado && f.submitted "> -->
+<!--     Bien!! Papa, Mama, 6 hijos y una hija, son 9 genial!! -->
+<!--   </p> -->
+<!--   <mat-form-field class="form-width text-center"> -->
+
+<!--     <mat-label class="label text-center">Escribe  numero</mat-label> -->
+<!--     <input matInput class="input" formControlName="inputAcertijo3" type="text" name="" value=""> -->
+<!--   </mat-form-field> -->
+<!--   <button class="btn" mat-button color="primary" [disabled]="disabled" type="submit">Comprobar</button> -->
+<!--   <button mat-raised-button color="primary" (click)="passPrueba4()" *ngIf="continuar" type="<button">Continuar</button> -->
 </form>

@@ -1,6 +1,12 @@
-<h2>Introduce la palabra correcta</h2>
+<h3 class="text-center tittle">
+</h3>
 
-<form (ngSubmit)="onSubmit()" [formGroup]="form">
-  <input formControlName="word_secret" class="input" type="text">
-  <button [disabled]="form.invalid" type="submit">Enviar</button>
+<form (ngSubmit)="onSubmit()" class="form container" [formGroup]="form">
+  <mat-form-field class="form-width text-center" appearance="legacy">
+    <mat-label class="label text-center">Introduce la palabra secreta en las pipas</mat-label>
+    <input matInput formControlName="word_secret" class="input" type="text">
+
+  </mat-form-field>
+  <button mat-button color="primary" class="btn" [disabled]="form.invalid" type="submit">Comprobar</button>
+
 </form>

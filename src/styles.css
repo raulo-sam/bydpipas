@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%;max-width:100%; }
+body { 
+  font-size: 2rem!important;
+  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root{
+
+  --pink : #7b1fa2;
+}
+.h3{
+  line-height: 4rem!important;
+  font-size:60px!important;
+}
+.container{
+margin:12% auto;
+}
+.img{
+  max-width:500px;
+  
+}
+.form {
+  margin:12px auto;  max-width: 800px;
+  width: 100%;
+  padding:0!important;
+
+}
+.form-width {
+  width: 100%;
+  background-color:rgba(0,0,0,0.1);
+}
+.text-center{
+text-align: center!important;
+}
+.label{
+  font-size:1.5rem;
+color:var(--pink);
+}
+.btn{
+  font-size:1.2rem;
+  text-align:center!important;
+  margin:10px auto!important;
+display:block;
+}
+.tittle{
+  color: var(--pink);
+}
+.imgNumeros{
+  max-width:650px;
+  
+
+}

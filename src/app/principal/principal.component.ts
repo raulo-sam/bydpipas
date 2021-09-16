@@ -11,7 +11,6 @@ export class PrincipalComponent implements OnInit {
 
   form: FormGroup;
   palabra: string = "ganatupasta";
-
   constructor(private fb: FormBuilder,
     private s: ServicioService,
 
@@ -25,16 +24,17 @@ export class PrincipalComponent implements OnInit {
       word_secret: ['ganatupasta',]
     })
 
-
   }
-
   onSubmit() {
-    if (this.form.controls.word_secret.invalid) return;
-    else {
-      if ((this.form.controls.word_secret.value).toLowerCase().includes(this.palabra)) {
-        this.s.principal = true;
-        console.log("gana tu pasata")
-      }
+    if ((this.form.controls.word_secret.value).toLowerCase().includes(this.palabra)) {
+      this.s.mostrarPrincipal = false;
+      this.s.mostrarPrueba1 = true;
+      this.s.passPrincipal();
+    } else {
+
+      this.s.mostrarFalloBob();
+
+
     }
   }
 

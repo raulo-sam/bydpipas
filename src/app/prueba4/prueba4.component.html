@@ -1,1 +1,58 @@
-<p>prueba4 works!</p>
+
+<h2 class="text-center tittle">
+  4ºPrueba
+</h2>
+<h2 class="text-center tittle">
+  Tendrás que ver el video y resolver unas cuestiones muy importantes!!
+  <p><a target="blanck" class="text-center tittle" href="https://www.youtube.com/watch?v=dF-rMYDo-LM">Enlace al video</a></p>
+</h2>
+<iframe style="margin:0 auto;display:block;" class="text-center container" width="560" height="315" src="https://www.youtube.com/embed/dF-rMYDo-LM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<form class="form container" #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="form">
+  <h2 class="tittle"> 
+  1ºPregunta
+  ¿Que come el pollito amarillo?
+  </h2>
+  <p style="color:red" *ngIf="!pregunta1.acertado && f.submitted ">
+    Nop 
+  </p>
+  <p style="color:green"*ngIf="pregunta1.acertado && f.submitted ">
+    Bien!! En el minuto 2:19 se ve que esta comiendo maiz.
+  </p>
+  <mat-form-field class="form-width text-center">
+    <mat-label class="label text-center">Escribe aquí</mat-label>
+    <input matInput class="input" formControlName="pollito" type="text" name="" value="">
+  </mat-form-field>
+
+  <h2 class="tittle"> 
+  2ºPregunta
+  ¿Como esta el gallo rojo?
+  </h2>
+  <p style="color:red" *ngIf="!pregunta2.acertado && f.submitted ">
+    Nop 
+  </p>
+  <p style="color:green"*ngIf="pregunta2.acertado && f.submitted ">
+    Bien!! Al principio se ve que bebe y esta borracho
+  </p>
+  <mat-form-field class="form-width text-center">
+    <mat-label class="label text-center">Escribe aquí</mat-label>
+    <input matInput class="input" formControlName="borracho" type="text" name="" value="">
+  </mat-form-field>
+
+  <h2 class="tittle">
+    3ºPregunta. ¿Que es lo que quiere la pava por marido?
+  </h2>
+  <p style="color:red" *ngIf="!pregunta3.acertado && f.submitted ">
+    Nop 
+  </p>
+  <p style="color:green"*ngIf="pregunta3.acertado && f.submitted ">
+    Bien!! 
+  </p>
+  <mat-form-field class="form-width text-center">
+
+    <mat-label class="label text-center">Escribe  numero</mat-label>
+    <input matInput class="input" formControlName="marido" type="text" name="" value="">
+  </mat-form-field>
+  <button class="btn" mat-button color="primary" type="submit">Comprobar</button>
+  <!-- <button mat-raised-button color="primary" (click)="passPrueba4()" *ngIf="continuar" type="<button">Continuar</button> -->
+</form>

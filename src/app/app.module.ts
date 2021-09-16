@@ -8,7 +8,14 @@ import { PrincipalComponent } from './principal/principal.component';
 import { Prueba2Component } from './prueba2/prueba2.component';
 import { Prueba3Component } from './prueba3/prueba3.component';
 import { Prueba4Component } from './prueba4/prueba4.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// angular material
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { FinalComponent } from './final/final.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,12 +23,17 @@ import { Prueba4Component } from './prueba4/prueba4.component';
     PrincipalComponent,
     Prueba2Component,
     Prueba3Component,
-    Prueba4Component
+    Prueba4Component,
+    FinalComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,13 @@
-<h2>Si el segundo numero quereis obtener el bote quitaholores del mercadona debeis tener.
-</h2>
-
-<form (ngSubmit)="onSubmit()" [formGroup]="form"> <input formControlName="inputQuitaholores" class="input" type="text">
-  <button [disabled]="form.invalid" type="submit">Enviar</button> </form>
+<h3 class="text-center tittle">
+  2ºPrueba
+</h3>
+<h3 class="text-center tittle">
+  Si la prueba quereis superar el bote quitaolores del mercadones tendreis que comprar
+</h3>
+<form class="form container" (ngSubmit)="onSubmit()" [formGroup]="form">
+  <mat-form-field class="form-width text-center" appearance="standard">
+    <input matInput formControlName="inputQuitaholores" class="input" type="text">
+    <mat-label class="label text-center">Escribe aqui </mat-label>
+  </mat-form-field>
+  <button class="btn" mat-button color="primary" type="submit">Comprobar</button>
+</form>

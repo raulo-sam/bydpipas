@@ -11,7 +11,7 @@ export class Prueba2Component implements OnInit {
 
 
   form: FormGroup;
-  quitaholores: string = "quitaholores";
+  quitaholores: string = "quitaolores";
 
   constructor(private fb: FormBuilder,
     private s: ServicioService,
@@ -22,19 +22,21 @@ export class Prueba2Component implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      inputQuitaholores: ['quitaholores',]
+      inputQuitaholores: ['quitaolores',]
     })
 
 
   }
 
   onSubmit() {
-    console.log(this.form)
-    if (this.form.controls.inputQuitaholores.invalid) return;
+    if (this.form.controls.inputQuitaholores.value == this.quitaholores) {
+      this.s.mostrarPrueba2 = false;
+      this.s.mostrarPrueba3 = true;
+      this.s.passPrueba2();
+    }
     else {
-      if (this.form.controls.inputQuitaholores.value == this.quitaholores) {
-        this.s.prueba2 = true;
-      }
+
+      this.s.mostrarFalloBob();
     }
   }
 

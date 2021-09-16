@@ -1,20 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ServicioService } from '../services/servicio.service';
-
+interface acertijo {
+  solucion: string
+  acertado: boolean,
+}
 @Component({
   selector: 'app-prueba3',
   templateUrl: './prueba3.component.html',
   styleUrls: ['./prueba3.component.css']
 })
 export class Prueba3Component implements OnInit {
-
-  segundos = 10;
+  continuar: boolean = false;
   disabled: boolean = false;
   form: FormGroup;
-  acertijo1: string = "chicle";
-  acertijo2: string = "pulgar";
-  acertijo3: number = 9;
+
+  acertijo1: acertijo = {
+    acertado: false,
+    solucion: "chicle"
+
+  };
+  acertijo2 = {
+    acertado: false,
+    solucion: "pulgar"
+
+  };
+  acertijo3 = {
+    acertado: false,
+    solucion: "9"
+
+  };
   constructor(private fb: FormBuilder,
     private s: ServicioService,
 
@@ -24,50 +39,43 @@ export class Prueba3Component implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      inputAcertijo1: ['Chicle'],
+      inputAcertijo1: ['chicle'],
       inputAcertijo2: ['pulgar'],
       inputAcertijo3: ['9']
     })
+    this.s.ocultarPipaTocahuevos();
+
 
 
   }
   onSubmit() {
-    let acertijos = {
-      uno: false,
-      dos: false,
-      tres: false,
-    }
-
-
-    if ((this.form.controls.inputAcertijo1.value).toLowerCase().includes(this.acertijo1.toLowerCase())) {
-      acertijos.uno = true;
+    if ((this.form.controls.inputAcertijo1.value).toLowerCase().includes(this.acertijo1.solucion.toLowerCase())) {
+      this.acertijo1.acertado = true;
       console.log("uno")
-    }
-    if ((this.form.controls.inputAcertijo2.value).toLowerCase().includes(this.acertijo2.toLowerCase())) {
-      acertijos.dos = true;
+    } else this.acertijo1.acertado = false;
+    if ((this.form.controls.inputAcertijo2.value).toLowerCase().includes(this.acertijo2.solucion.toLowerCase())) {
+      this.acertijo2.acertado = true;
       console.log("dos")
-    }
-    if ((this.form.controls.inputAcertijo3.value).toLowerCase().includes(this.acertijo3.toString())) {
-      acertijos.tres = true;
+
+    } else this.acertijo2.acertado = false;
+
+    if ((this.form.controls.inputAcertijo3.value).toLowerCase().includes(this.acertijo3.solucion.toString())) {
+      this.acertijo3.acertado = true;
       console.log("tres")
-    }
-    if (!acertijos.tres) {
-      this.disabled = true;
-      let interval: any;
-      interval = setInterval(() => {
-        this.segundos--;
-        if (this.segundos === 0) {
-          this.disabled = false;
-          this.segundos = 10;
-          clearInterval(interval);
-        }
-      }, 1000)
-    }
-    if (acertijos.uno && acertijos.dos && acertijos.tres) {
-      this.s.prueba4 = true;
-      console.log("es todo correcto")
-    }
+      console.log(this.form.controls.inputAcertijo3.value)
+    } else this.acertijo3.acertado = false;
 
+
+    if (this.acertijo1.acertado && this.acertijo2.acertado && this.acertijo3.acertado) {
+      this.continuar = true;
+    }
+    else {
+      this.s.mostrarFalloBob();
+    }
   }
-
+  passPrueba4() {
+    this.s.mostrarPrueba4 = true;
+    this.s.mostrarPrueba3 = false;
+    this.s.passPrueba3();
+  }
 }

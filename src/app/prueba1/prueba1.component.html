@@ -1,7 +1,14 @@
-<h2>Resuelve esta cuenta de mates</h2>
-
-<form (ngSubmit)="onSubmit()" [formGroup]="form">
-  <img src="" alt="FotoCuentaMates">
-  <input formControlName="inputResultado" class="input" type="text">
-  <button type="submit">Enviar</button>
+<h3 class="text-center tittle">
+  1ºPrueba
+</h3>
+<h3 class="text-center tittle">
+  Copiar el codigo de la foto, facil no!!
+</h3>
+<form class="form container" (ngSubmit)="onSubmit()" [formGroup]="form">
+  <img class="form" src="./../../assets/numeross.png" alt="FotoCuentaMates">
+  <mat-form-field class="form-width text-center">
+    <mat-label class="label text-center">Escribe aqui</mat-label>
+    <input matInput formControlName="inputResultado" class="input" type="text">
+  </mat-form-field>
+  <button class="btn" mat-button color="primary" type="submit">Comprobar</button>
 </form>
