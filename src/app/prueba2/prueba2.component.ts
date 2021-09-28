@@ -11,7 +11,7 @@ export class Prueba2Component implements OnInit {
 
 
   form: FormGroup;
-  quitaholores: string = "quitaolores";
+ quitaholores: string = "quitaolores";
 
   constructor(private fb: FormBuilder,
     private s: ServicioService,
@@ -30,8 +30,8 @@ export class Prueba2Component implements OnInit {
 
   onSubmit() {
     if (this.form.controls.inputQuitaholores.value == this.quitaholores) {
-      this.s.mostrarPrueba2 = false;
-      this.s.mostrarPrueba3 = true;
+      // this.s.mostrarPrueba2 = false;
+      // this.s.mostrarPrueba3 = true;
       this.s.passPrueba2();
     }
     else {

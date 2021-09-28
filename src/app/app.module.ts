@@ -16,26 +16,28 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FinalComponent } from './final/final.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
-  declarations: [
-    AppComponent,
-    Prueba1Component,
-    PrincipalComponent,
-    Prueba2Component,
-    Prueba3Component,
-    Prueba4Component,
-    FinalComponent
-  ],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatButtonModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        Prueba1Component,
+        PrincipalComponent,
+        Prueba2Component,
+        Prueba3Component,
+        Prueba4Component,
+        FinalComponent
+    ],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        ReactiveFormsModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatButtonModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

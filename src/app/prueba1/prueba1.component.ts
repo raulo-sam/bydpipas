@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core'; import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { BackendService } from '../services/backend.service';
 import { ServicioService } from '../services/servicio.service';
 
 @Component({
@@ -10,11 +12,11 @@ export class Prueba1Component implements OnInit {
 
 
   form: FormGroup;
-  resultado: string = "280A23x47t5l9823h74eq509R23847f5023984y752039zZb8457mN203Ds985732w2039y8479485";
 
   constructor(private fb: FormBuilder,
     private s: ServicioService,
-
+    private b:BackendService,
+    private router:Router
   ) {
   }
 
@@ -23,19 +25,21 @@ export class Prueba1Component implements OnInit {
       inputResultado: ['280A23x47t5l9823h74eq509R23847f5023984y752039zZb8457mN203Ds985732w2039y8479485',]
     })
     this.s.mostrarPipaTocahuevos();
-    console.log(this.resultado)
   }
 
   onSubmit() {
-    if (this.form.controls.inputResultado.value === this.resultado) {
-      this.s.mostrarPrueba1 = false;
-      this.s.mostrarPrueba2 = true;
-      this.s.passPrueba1();
-    }
-    else {
-      this.s.ocultarPipaTocahuevos();
- this.s.mostrarFalloBob();
-    }
+
+      const resPrueba1 = this.form.controls.inputResultado.value
+        this.b.checkPrueba1(resPrueba1).subscribe(check=>{
+            console.log(check)
+            if(check){
+                this.router.navigate(['/prueba2'])
+                this.s.passPrueba1()
+            }else{
+            this.s.mostrarFalloBob()
+            }
+
+    })
   }
 
 

@@ -1,42 +1,49 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { BackendService } from '../services/backend.service';
 import { ServicioService } from '../services/servicio.service';
 
 @Component({
-  selector: 'app-principal',
-  templateUrl: './principal.component.html',
-  styleUrls: ['./principal.component.css']
+    selector: 'app-principal',
+    templateUrl: './principal.component.html',
+    styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent implements OnInit {
 
-  form: FormGroup;
-  palabra: string = "ganatupasta";
-  constructor(private fb: FormBuilder,
-    private s: ServicioService,
+    form: FormGroup;
+    constructor(
 
-  ) {
+        private fb: FormBuilder,
+        private s: ServicioService,
+        private b:BackendService,
+        private router:Router
 
-    console.log('cargado');
-  }
+    ) {
+    }
 
-  ngOnInit(): void {
-    this.form = this.fb.group({
-      word_secret: ['ganatupasta',]
-    })
+    ngOnInit(): void {
+        this.form = this.fb.group({
+            word_secret: ['',]
+        })
 
-  }
-  onSubmit() {
-    if ((this.form.controls.word_secret.value).toLowerCase().includes(this.palabra)) {
-      this.s.mostrarPrincipal = false;
-      this.s.mostrarPrueba1 = true;
-      this.s.passPrincipal();
-    } else {
+    }
+    onSubmit() {
+        this.b.checkPrincipal(this.form.controls.word_secret.value).subscribe(check=>{
 
-      this.s.mostrarFalloBob();
+        console.log(check)
+        if (check){
+            this.router.navigate(['/prueba1'])
+        }else{
+            }
+            this.s.mostrarFalloBob();
+
+        }) 
+
+
 
 
     }
-  }
 
 
 }

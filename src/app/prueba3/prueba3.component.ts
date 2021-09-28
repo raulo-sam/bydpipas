@@ -74,8 +74,8 @@ export class Prueba3Component implements OnInit {
     }
   }
   passPrueba4() {
-    this.s.mostrarPrueba4 = true;
-    this.s.mostrarPrueba3 = false;
+    // this.s.mostrarPrueba4 = true;
+    // this.s.mostrarPrueba3 = false;
     this.s.passPrueba3();
   }
 }
