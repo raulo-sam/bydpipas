@@ -1,43 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { BackendService } from '../services/backend.service';
 import { ServicioService } from '../services/servicio.service';
 
 @Component({
-  selector: 'app-prueba2',
-  templateUrl: './prueba2.component.html',
-  styleUrls: ['./prueba2.component.css']
+    selector: 'app-prueba2',
+    templateUrl: './prueba2.component.html',
+    styleUrls: ['./prueba2.component.css']
 })
 export class Prueba2Component implements OnInit {
 
 
-  form: FormGroup;
- quitaholores: string = "quitaolores";
+    form: FormGroup;
 
-  constructor(private fb: FormBuilder,
-    private s: ServicioService,
-
-  ) {
-    console.log('cargado');
-  }
-
-  ngOnInit(): void {
-    this.form = this.fb.group({
-      inputQuitaholores: ['quitaolores',]
-    })
-
-
-  }
-
-  onSubmit() {
-    if (this.form.controls.inputQuitaholores.value == this.quitaholores) {
-      // this.s.mostrarPrueba2 = false;
-      // this.s.mostrarPrueba3 = true;
-      this.s.passPrueba2();
+    constructor(private fb: FormBuilder,
+        private s: ServicioService,
+        private b: BackendService,
+        private router: Router
+    ) {
+        console.log('cargado');
     }
-    else {
 
-      this.s.mostrarFalloBob();
+    ngOnInit(): void {
+        this.form = this.fb.group({
+            inputQuitaholores: ["benzisothiazolinone y phenoxyethanol",]
+        })
+
+
     }
-  }
+
+    onSubmit() {
+        const resPrueba2 = this.form.controls.inputQuitaholores.value
+        this.b.checkPrueba2(resPrueba2).subscribe((check) => {
+
+            if (check) {
+                this.router.navigate(['/prueba3'])
+                this.s.passPrueba2();
+            } else {
+                this.s.mostrarFalloBob();
+            }
+        })
+    }
+
+
 
 }

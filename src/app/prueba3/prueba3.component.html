@@ -7,46 +7,52 @@
 <form class="form container" #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="form">
   <h2 class="tittle"> 1º ¿que esta comiendo el pollito amarillo?
   </h2>
-  <!-- <p style="color:red" *ngIf="!acertijo1.acertado && f.submitted "> -->
-  <!--   Nop  -->
-  <!-- </p> -->
-  <!-- <p style="color:green"*ngIf="acertijo1.acertado && f.submitted "> -->
-  <!--   Bien!! -->
-  <!-- </p> -->
-<!--   <mat-form-field class="form-width text-center"> -->
-<!--     <mat-label class="label text-center">Escribe aquí</mat-label> -->
-<!--     <input matInput class="input" formControlName="inputAcertijo1" type="text" name="" value=""> -->
-<!--   </mat-form-field> -->
+  <p style="color:red" *ngIf="!acertijo1.acertado && f.submitted ">
+    Nop 
+  </p>
+  <p style="color:green"*ngIf="acertijo1.acertado && f.submitted ">
+    Bien!!
+  </p>
+  <mat-form-field class="form-width text-center">
+    <mat-label class="label text-center">Escribe aquí</mat-label>
+    <input matInput class="input" formControlName="inputAcertijo1" type="text" name="" value="">
+  </mat-form-field>
 
-<!--   <h2 class="tittle"> -->
-<!--     Lo levanto cuando estoy contento, pero es más pequeño que el resto. ¿Qué es? -->
-<!--   </h2> -->
-<!--   <p style="color:red" *ngIf="!acertijo2.acertado && f.submitted "> -->
-<!--     Nop  -->
-<!--   </p> -->
-<!--   <p style="color:green"*ngIf="acertijo2.acertado && f.submitted "> -->
-<!--     Bien!! -->
-<!--   </p> -->
-<!--   <mat-form-field class="form-width text-center"> -->
-<!--     <mat-label class="label text-center">Escribe aquí</mat-label> -->
-<!--     <input matInput class="input" formControlName="inputAcertijo2" type="text" name="" value=""> -->
-<!--   </mat-form-field> -->
+  <h2 class="tittle">
+    Lo levanto cuando estoy contento, pero es más pequeño que el resto. ¿Qué es?
+  </h2>
+  <p style="color:red" *ngIf="!acertijo2.acertado && f.submitted ">
+    Nop 
+  </p>
+  <p style="color:green"*ngIf="acertijo2.acertado && f.submitted ">
+    Bien!!
+  </p>
+  <mat-form-field class="form-width text-center">
+    <mat-label class="label text-center">Escribe aquí</mat-label>
+    <input matInput class="input" formControlName="inputAcertijo2" type="text" name="" value="">
+  </mat-form-field>
 
-<!--   <h2 class="tittle"> -->
-<!--     La señora y el señor Sánchez tienen 6 hijos. Cada hijo tiene una hermana. ¿Cuántas personas hay en la familia -->
-<!--     Sánchez? -->
-<!--   </h2> -->
-<!--   <p style="color:red" *ngIf="!acertijo3.acertado && f.submitted "> -->
-<!--     Nop  -->
-<!--   </p> -->
-<!--   <p style="color:green"*ngIf="acertijo3.acertado && f.submitted "> -->
-<!--     Bien!! Papa, Mama, 6 hijos y una hija, son 9 genial!! -->
-<!--   </p> -->
-<!--   <mat-form-field class="form-width text-center"> -->
+  <h2 class="tittle">
+    La señora y el señor Sánchez tienen 6 hijos. Cada hijo tiene una hermana. ¿Cuántas personas hay en la familia
+    Sánchez?
+  </h2>
+  <p style="color:red" *ngIf="!acertijo3.acertado && f.submitted ">
+    Nop 
+  </p>
+  <p style="color:green"*ngIf="acertijo3.acertado && f.submitted ">
+    Bien!! Papa, Mama, 6 hijos y una hija, son 9 genial!!
+  </p>
+  <mat-form-field class="form-width text-center">
 
-<!--     <mat-label class="label text-center">Escribe  numero</mat-label> -->
-<!--     <input matInput class="input" formControlName="inputAcertijo3" type="text" name="" value=""> -->
-<!--   </mat-form-field> -->
-<!--   <button class="btn" mat-button color="primary" [disabled]="disabled" type="submit">Comprobar</button> -->
-<!--   <button mat-raised-button color="primary" (click)="passPrueba4()" *ngIf="continuar" type="<button">Continuar</button> -->
+    <mat-label class="label text-center">Escribe  numero</mat-label>
+    <input matInput class="input" formControlName="inputAcertijo3" type="text" name="" value="">
+  </mat-form-field>
+  <button class="btn" mat-button color="primary" [disabled]="disabled" type="submit">Comprobar</button>
+  <button mat-raised-button color="primary" (click)="passPrueba4()" 
+        *ngIf="
+                this.acertijo1.acertado &&
+                this.acertijo2.acertado &&
+                this.acertijo3.acertado " 
+        type="<button">Continuar</button>
+  
 </form>

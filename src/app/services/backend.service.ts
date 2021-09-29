@@ -22,4 +22,13 @@ export class BackendService {
     guardPrueba2() {
         return this.http.get<boolean>(this.URL + 'guardPrueba2').toPromise();
     }
+    checkPrueba2(resPrueba2:string){
+        return this.http.post<boolean>(this.URL+ 'checkprueba2',{resPrueba2})
+    }
+    guardPrueba3() {
+        return this.http.get<boolean>(this.URL + 'guardPrueba3').toPromise();
+    }
+    checkPrueba3(resPrueba3:any){
+        return this.http.post<any>(this.URL+ 'checkprueba3',{resPrueba3})
+    }
 }

@@ -1,81 +1,83 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { BackendService } from '../services/backend.service';
 import { ServicioService } from '../services/servicio.service';
-interface acertijo {
-  solucion: string
-  acertado: boolean,
-}
 @Component({
-  selector: 'app-prueba3',
-  templateUrl: './prueba3.component.html',
-  styleUrls: ['./prueba3.component.css']
+    selector: 'app-prueba3',
+    templateUrl: './prueba3.component.html',
+    styleUrls: ['./prueba3.component.css']
 })
 export class Prueba3Component implements OnInit {
-  continuar: boolean = false;
-  disabled: boolean = false;
-  form: FormGroup;
+    disabled: boolean = false;
+    form: FormGroup;
 
-  acertijo1: acertijo = {
-    acertado: false,
-    solucion: "chicle"
-
-  };
-  acertijo2 = {
-    acertado: false,
-    solucion: "pulgar"
-
-  };
-  acertijo3 = {
-    acertado: false,
-    solucion: "9"
-
-  };
-  constructor(private fb: FormBuilder,
-    private s: ServicioService,
-
-  ) {
-    console.log('cargado Prueba3');
-  }
-
-  ngOnInit(): void {
-    this.form = this.fb.group({
-      inputAcertijo1: ['chicle'],
-      inputAcertijo2: ['pulgar'],
-      inputAcertijo3: ['9']
-    })
-    this.s.ocultarPipaTocahuevos();
-
-
-
-  }
-  onSubmit() {
-    if ((this.form.controls.inputAcertijo1.value).toLowerCase().includes(this.acertijo1.solucion.toLowerCase())) {
-      this.acertijo1.acertado = true;
-      console.log("uno")
-    } else this.acertijo1.acertado = false;
-    if ((this.form.controls.inputAcertijo2.value).toLowerCase().includes(this.acertijo2.solucion.toLowerCase())) {
-      this.acertijo2.acertado = true;
-      console.log("dos")
-
-    } else this.acertijo2.acertado = false;
-
-    if ((this.form.controls.inputAcertijo3.value).toLowerCase().includes(this.acertijo3.solucion.toString())) {
-      this.acertijo3.acertado = true;
-      console.log("tres")
-      console.log(this.form.controls.inputAcertijo3.value)
-    } else this.acertijo3.acertado = false;
-
-
-    if (this.acertijo1.acertado && this.acertijo2.acertado && this.acertijo3.acertado) {
-      this.continuar = true;
+    acertijo1= {
+        acertado: false
     }
-    else {
-      this.s.mostrarFalloBob();
+    acertijo2= {
+        acertado: false
+
     }
-  }
-  passPrueba4() {
-    // this.s.mostrarPrueba4 = true;
-    // this.s.mostrarPrueba3 = false;
-    this.s.passPrueba3();
-  }
+    acertijo3= {
+        acertado: false
+    }
+
+
+
+    constructor(private fb: FormBuilder,
+        private s: ServicioService,
+        private b: BackendService,
+        private router: Router
+
+    ) {
+        console.log('cargado Prueba3');
+    }
+
+    ngOnInit(): void {
+        this.form = this.fb.group({
+            inputAcertijo1: ['chicle'],
+            inputAcertijo2: ['pulgar'],
+            inputAcertijo3: ['9']
+        })
+        this.s.ocultarPipaTocahuevos();
+
+
+
+    }
+    onSubmit() {
+        const respPrueba3 = {
+            acertijo1: {
+                res: this.form.controls.inputAcertijo1.value
+            },
+            acertijo2: {
+                res: this.form.controls.inputAcertijo2.value
+            },
+            acertijo3: {
+                res: this.form.controls.inputAcertijo3.value
+
+            }
+        };
+        this.b.checkPrueba3(respPrueba3).subscribe((obj: any) => {
+
+            console.log(obj)
+            this.acertijo1.acertado = obj.acertijo1.acertado
+            this.acertijo2.acertado = obj.acertijo2.acertado
+            this.acertijo3.acertado = obj.acertijo3.acertado
+            if(
+                this.acertijo1.acertado &&
+                this.acertijo2.acertado &&
+                this.acertijo3.acertado 
+            ){
+            this.s.passPrueba3()
+            }else{
+            this.s.mostrarFalloBob()
+            }
+        })
+
+    }
+    passPrueba4() {
+        this.router.navigate(['/prueba4'])
+        this.s.passPrueba3();
+    }
 }
