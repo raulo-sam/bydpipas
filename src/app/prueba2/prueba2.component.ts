@@ -23,7 +23,7 @@ export class Prueba2Component implements OnInit {
 
     ngOnInit(): void {
         this.form = this.fb.group({
-            inputQuitaholores: ["benzisothiazolinone y phenoxyethanol",]
+            inputQuitaholores: ["",]
         })
 
 

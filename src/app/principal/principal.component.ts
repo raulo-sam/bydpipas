@@ -23,6 +23,7 @@ export class PrincipalComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.b.principal(); 
         this.form = this.fb.group({
             word_secret: ['',]
         })
@@ -31,12 +32,13 @@ export class PrincipalComponent implements OnInit {
     onSubmit() {
         this.b.checkPrincipal(this.form.controls.word_secret.value).subscribe(check=>{
 
+
         if (check){
-            this.s.mostrarModaChulo()
+            this.s.passPrincipal()
             this.router.navigate(['/prueba1'])
         }else{
-            }
             this.s.mostrarFalloBob();
+            }
 
         }) 
 

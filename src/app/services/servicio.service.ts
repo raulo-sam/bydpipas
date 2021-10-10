@@ -1,16 +1,12 @@
 import { Injectable } from '@angular/core';
 
 import Swal from 'sweetalert2'
+import { BackendService } from './backend.service';
 @Injectable({
     providedIn: 'root'
 })
 export class ServicioService {
-    // private mostrarPrincipal: boolean = true;
-    // private mostrarPrueba1: boolean = false;
-    // private mostrarPrueba2: boolean = false;
-    // private mostrarPrueba3: boolean = false;
-    // private mostrarPrueba4: boolean = false;
-    constructor() { }
+    constructor(private b : BackendService) { }
 
     mostrarModaChulo() {
         Swal.fire({
@@ -35,14 +31,13 @@ export class ServicioService {
             // background: '#fff url(./assets/f.gif)',
         })
     }
-    // imageHeight: 600,
     interval: any;
     mostrarPipaTocahuevos() {
         this.interval = setInterval(() => {
 
             Swal.fire({
                 title: '¡Hola soy la pipa TocaHuevos!',
-                text: 'Y si, te voy a tocar los huevos un ratito jajaajajaj',
+                text: 'Y te voy a tocar los huevos un ratito jajaajajaj',
                 imageUrl: './assets/pipa2.gif',
                 imageWidth: 400,
                 imageHeight: 200,
@@ -51,19 +46,24 @@ export class ServicioService {
         }, 20000)
     }
     ocultarPipaTocahuevos() {
-
         clearInterval(this.interval)
+    }
+    mostrarPavos(){
+
+        Swal.fire({
+            imageUrl: "./assets/pavos.gif",
+            imageWidth: 400,
+            imageHeight: 200,
+            confirmButtonText: "Continuar",
+            padding: '3em',
+        })
     }
     async passPrincipal() {
         await Swal.fire({
             title: 'Enhorabuena!!!! Has acertado la palabra!!!',
-            // width: 1000,
-            // fireheight:600,
             imageUrl: "./assets/dinero.gif",
             confirmButtonText: "Continuar",
-            // imageHeight: 600,
             padding: '3em',
-            // background: '#fff url(./assets/f.gif)',
         })
 
         await Swal.fire({
@@ -82,9 +82,7 @@ export class ServicioService {
             imageWidth: 400,
             imageHeight: 200,
             confirmButtonText: "Continuar",
-            // imageHeight: 600,
             padding: '3em',
-            // background: '#fff url(./assets/f.gif)',
         })
     }
     passPrueba2() {
@@ -95,9 +93,7 @@ export class ServicioService {
             imageWidth: 400,
             imageHeight: 200,
             confirmButtonText: "Continuar",
-            // imageHeight: 600,
             padding: '3em',
-            // background: '#fff url(./assets/f.gif)',
         })
 
 
@@ -129,7 +125,7 @@ export class ServicioService {
             // background: '#fff url(./assets/f.gif)',
         })
     }
-
+    
 
     mostrarContraseñaFake2() {
 
@@ -178,14 +174,19 @@ export class ServicioService {
 
     mostrarContraseña() {
 
+        this.b.getPass().subscribe((pass:any)=>{
+            console.log('hola',pass);
+            
         Swal.fire({
-            title: '1234567890',
+            title: pass.pass,
             imageWidth: 400,
             imageHeight: 200,
             confirmButtonText: "Continuar",
-            // imageHeight: 600,
             padding: '4em',
-            // background: '#fff url(./assets/f.gif)',
         })
+        })
+
+
+
     }
 }

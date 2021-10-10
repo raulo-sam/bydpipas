@@ -31,16 +31,14 @@ export class Prueba3Component implements OnInit {
         private router: Router
 
     ) {
-        console.log('cargado Prueba3');
     }
 
     ngOnInit(): void {
         this.form = this.fb.group({
-            inputAcertijo1: ['chicle'],
-            inputAcertijo2: ['pulgar'],
-            inputAcertijo3: ['9']
+            inputAcertijo1: [''],
+            inputAcertijo2: [''],
+            inputAcertijo3: ['']
         })
-        this.s.ocultarPipaTocahuevos();
 
 
 
@@ -78,6 +76,5 @@ export class Prueba3Component implements OnInit {
     }
     passPrueba4() {
         this.router.navigate(['/prueba4'])
-        this.s.passPrueba3();
     }
 }

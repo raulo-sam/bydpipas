@@ -30,10 +30,9 @@ export class Prueba4Component implements OnInit {
 
     ngOnInit(): void {
         this.form = this.fb.group({
-            pollito: ['maiz'],
-            // minuto 2:19 se ve el maiz,
-            borracho: ['borracho'],
-            marido: ['pavo'],
+            pollito: [''],
+            borracho: [''],
+            marido: [''],
         })
     }
 
@@ -51,18 +50,17 @@ export class Prueba4Component implements OnInit {
 
         }
         this.b.checkPrueba4(resPrueba4).subscribe((obj)=>{
-            console.log(obj)
             this.pregunta1.acertado = obj.pregunta1.acertado
             this.pregunta2.acertado = obj.pregunta2.acertado
             this.pregunta3.acertado = obj.pregunta3.acertado
 
             if(
-
             this.pregunta1.acertado &&
             this.pregunta2.acertado && 
             this.pregunta3.acertado 
             ){
-            this.s.mostrarModaChulo()
+            this.s.mostrarPavos()
+            this.s.ocultarPipaTocahuevos();
             }else{
             this.s.mostrarFalloBob()
             }

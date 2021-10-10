@@ -22,7 +22,7 @@ export class Prueba1Component implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      inputResultado: ['280A23x47t5l9823h74eq509R23847f5023984y752039zZb8457mN203Ds985732w2039y8479485',]
+      inputResultado: ['',]
     })
     this.s.mostrarPipaTocahuevos();
   }
