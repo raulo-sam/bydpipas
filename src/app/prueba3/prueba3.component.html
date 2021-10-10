@@ -5,7 +5,7 @@
   Resolver estos acertijos facilitos
 </h3>
 <form class="form container" #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="form">
-  <h2 class="tittle"> 1º ¿que esta comiendo el pollito amarillo?
+  <h2 class="tittle"> 1º Entra duro y seco y sale blando y mojado. ¿Que es?
   </h2>
   <p style="color:red" *ngIf="!acertijo1.acertado && f.submitted ">
     Nop 
@@ -48,7 +48,7 @@
     <input matInput class="input" formControlName="inputAcertijo3" type="text" name="" value="">
   </mat-form-field>
   <button class="btn" mat-button color="primary" [disabled]="disabled" type="submit">Comprobar</button>
-  <button mat-raised-button color="primary" (click)="passPrueba4()" 
+  <button class="btn-continuar" mat-raised-button color="primary" (click)="passPrueba4()" 
         *ngIf="
                 this.acertijo1.acertado &&
                 this.acertijo2.acertado &&

@@ -1,50 +1,76 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { BackendService } from '../services/backend.service';
 import { ServicioService } from '../services/servicio.service';
 
 @Component({
-  selector: 'app-prueba4',
-  templateUrl: './prueba4.component.html',
-  styleUrls: ['./prueba4.component.css']
+    selector: 'app-prueba4',
+    templateUrl: './prueba4.component.html',
+    styleUrls: ['./prueba4.component.css']
 })
 export class Prueba4Component implements OnInit {
 
-  constructor(private s: ServicioService, private fb: FormBuilder) { }
-  form: FormGroup;
-  pregunta1 = {
-    acertado: false,
-    solucion: "maiz"
-  }
-  pregunta2 = {
-    acertado: false,
-    solucion: "borracho"
-  }
-  pregunta3 = {
-    acertado: false,
-    solucion: "pavo"
-  }
+    constructor(
+        private s: ServicioService,
+        private fb: FormBuilder,
+        private b :BackendService,
+        private router:Router
+    ) { }
+    form: FormGroup;
+    pregunta1 = {
+        acertado: false,
+    }
+    pregunta2 = {
+        acertado: false,
+    }
+    pregunta3 = {
+        acertado: false,
+    }
 
-  ngOnInit(): void {
-    this.form = this.fb.group({
-      pollito: ['maiz'],
-      // minuto 2:19 se ve el maiz,
-      borracho: ['borracho'],
-      marido: ['pavo'],
-    })
-  }
+    ngOnInit(): void {
+        this.form = this.fb.group({
+            pollito: ['maiz'],
+            // minuto 2:19 se ve el maiz,
+            borracho: ['borracho'],
+            marido: ['pavo'],
+        })
+    }
 
-  onSubmit() {
-    if ((this.form.controls.pollito.value).toLowerCase().includes(this.pregunta1.solucion)) {
-      this.pregunta1.acertado = true;
-    } else { this.pregunta1.acertado = false; }
+    onSubmit() {
+        const resPrueba4 = {
+            pregunta1: {
+                res: this.form.controls.pollito.value
+            },
+            pregunta2: {
+                res: this.form.controls.borracho.value
+            },
+            pregunta3: {
+                res: this.form.controls.marido.value
+            }
 
-    if ((this.form.controls.borracho.value).toLowerCase().includes(this.pregunta2.solucion)) {
-      this.pregunta2.acertado = true;
-    } else { this.pregunta2.acertado = false; }
+        }
+        this.b.checkPrueba4(resPrueba4).subscribe((obj)=>{
+            console.log(obj)
+            this.pregunta1.acertado = obj.pregunta1.acertado
+            this.pregunta2.acertado = obj.pregunta2.acertado
+            this.pregunta3.acertado = obj.pregunta3.acertado
 
+            if(
 
-    if ((this.form.controls.marido.value).toLowerCase().includes(this.pregunta3.solucion)) {
-      this.pregunta3.acertado = true;
-    } else { this.pregunta3.acertado = false; }
-  }
+            this.pregunta1.acertado &&
+            this.pregunta2.acertado && 
+            this.pregunta3.acertado 
+            ){
+            this.s.mostrarModaChulo()
+            }else{
+            this.s.mostrarFalloBob()
+            }
+             
+        })
+    }
+    passPrueba4(){
+
+        this.router.navigate(['/final'])
+    }
 }

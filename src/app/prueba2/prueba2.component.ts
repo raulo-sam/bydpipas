@@ -14,11 +14,10 @@ export class Prueba2Component implements OnInit {
 
     form: FormGroup;
 
-    constructor(private fb: FormBuilder,
+    constructor(private fb: FormBuilder, 
         private s: ServicioService,
         private b: BackendService,
-        private router: Router
-    ) {
+        private router: Router    ) {
         console.log('cargado');
     }
 
@@ -42,7 +41,5 @@ export class Prueba2Component implements OnInit {
             }
         })
     }
-
-
 
 }

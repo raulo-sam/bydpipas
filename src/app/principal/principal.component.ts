@@ -31,8 +31,8 @@ export class PrincipalComponent implements OnInit {
     onSubmit() {
         this.b.checkPrincipal(this.form.controls.word_secret.value).subscribe(check=>{
 
-        console.log(check)
         if (check){
+            this.s.mostrarModaChulo()
             this.router.navigate(['/prueba1'])
         }else{
             }

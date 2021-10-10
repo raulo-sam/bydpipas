@@ -54,5 +54,10 @@
     <input matInput class="input" formControlName="marido" type="text" name="" value="">
   </mat-form-field>
   <button class="btn" mat-button color="primary" type="submit">Comprobar</button>
-  <!-- <button mat-raised-button color="primary" (click)="passPrueba4()" *ngIf="continuar" type="<button">Continuar</button> -->
+  <button class="btn-continuar"  mat-raised-button color="primary" (click)="passPrueba4()"
+        *ngIf="
+            pregunta1.acertado &&
+            pregunta2.acertado && 
+            pregunta3.acertado "
+        type="<button">Continuar</button>
 </form>

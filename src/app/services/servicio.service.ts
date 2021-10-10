@@ -108,7 +108,7 @@ export class ServicioService {
             title: 'Bienn a por la ultima jajaja !!!',
             imageUrl: "./assets/risa1.gif",
             imageWidth: 400,
-            imageHeight: 200,
+            imageHeight: 400,
             confirmButtonText: "Continuar",
             // imageHeight: 600,
             padding: '3em',
@@ -116,18 +116,76 @@ export class ServicioService {
         })
 
     }
+    mostrarContraseñaFake1() {
 
-//     setPrincipal(b: boolean) {
-//         this.mostrarPrincipal = b
-//     }
-//     getPrincipal(){
-//         return this.mostrarPrincipal
-//     }
+        Swal.fire({
+            imageUrl: "./assets/fake1.gif",
+            imageWidth: 400,
+            imageHeight: 200,
+            text:"Que me meoooo",
+            confirmButtonText: "Continuar",
+            // imageHeight: 600,
+            padding: '3em',
+            // background: '#fff url(./assets/f.gif)',
+        })
+    }
 
-//     setPrueba1(b:boolean){
-//         this.mostrarPrueba1 = b
-//     }
-//     getPrueba1(){
-//         return this.mostrarPrueba1;
-//     }
+
+    mostrarContraseñaFake2() {
+
+        Swal.fire({
+            title: 'Solo una mas por favor jajajaj',
+            imageUrl: "./assets/fake2.gif",
+            imageWidth: 400,
+            imageHeight: 200,
+            text:"Jajaj que si ahora dale al siguiente",
+            confirmButtonText: "Continuar",
+            // imageHeight: 600,
+            padding: '3em',
+            // background: '#fff url(./assets/f.gif)',
+        })
+    }
+
+
+    mostrarContraseñaFake3() {
+
+        Swal.fire({
+            title: 'Te juro que esta es la ultima ',
+            imageUrl: "./assets/fake3.gif",
+            imageWidth: 400,
+            imageHeight: 200,
+            confirmButtonText: "Continuar",
+            // imageHeight: 600,
+            padding: '3em',
+            // background: '#fff url(./assets/f.gif)',
+        })
+    }
+
+
+    mostrarContraseñaFake4() {
+
+        Swal.fire({
+            title: 'Esta es vuestra cara de felicidad al abrir la caja fuerte',
+            imageUrl: "./assets/fake4.gif",
+            imageWidth: 400,
+            imageHeight: 200,
+            confirmButtonText: "Continuar",
+            // imageHeight: 600,
+            padding: '3em',
+            // background: '#fff url(./assets/f.gif)',
+        })
+    }
+
+    mostrarContraseña() {
+
+        Swal.fire({
+            title: '1234567890',
+            imageWidth: 400,
+            imageHeight: 200,
+            confirmButtonText: "Continuar",
+            // imageHeight: 600,
+            padding: '4em',
+            // background: '#fff url(./assets/f.gif)',
+        })
+    }
 }
