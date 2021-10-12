@@ -31,7 +31,6 @@ export class Prueba1Component implements OnInit {
 
       const resPrueba1 = this.form.controls.inputResultado.value
         this.b.checkPrueba1(resPrueba1).subscribe(check=>{
-            console.log(check)
             if(check){
                 this.router.navigate(['/prueba2'])
                 this.s.passPrueba1()

@@ -17,7 +17,6 @@ export class FinalGuard implements CanActivate {
 
 
       return this.b.guardFinal().then(check=>{
-          console.log(check)
             if(check){
                 return true
             }

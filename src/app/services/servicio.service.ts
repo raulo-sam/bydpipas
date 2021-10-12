@@ -175,7 +175,6 @@ export class ServicioService {
     mostrarContraseña() {
 
         this.b.getPass().subscribe((pass:any)=>{
-            console.log('hola',pass);
             
         Swal.fire({
             title: pass.pass,

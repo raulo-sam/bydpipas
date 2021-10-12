@@ -18,7 +18,6 @@ export class Prueba2Component implements OnInit {
         private s: ServicioService,
         private b: BackendService,
         private router: Router    ) {
-        console.log('cargado');
     }
 
     ngOnInit(): void {

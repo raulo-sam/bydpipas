@@ -58,7 +58,6 @@ export class Prueba3Component implements OnInit {
         };
         this.b.checkPrueba3(respPrueba3).subscribe((obj: any) => {
 
-            console.log(obj)
             this.acertijo1.acertado = obj.acertijo1.acertado
             this.acertijo2.acertado = obj.acertijo2.acertado
             this.acertijo3.acertado = obj.acertijo3.acertado

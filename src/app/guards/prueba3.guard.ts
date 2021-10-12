@@ -15,7 +15,6 @@ export class Prueba3Guard implements CanActivate {
    async canActivate():Promise<boolean> {
 
       return this.b.guardPrueba3().then(check=>{
-          console.log(check)
             if(check){
                 return true
             }
