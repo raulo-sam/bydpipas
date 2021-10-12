@@ -7,7 +7,7 @@ import { ServicioService } from './services/servicio.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ganatupasta';
+  title = 'bydpipas';
   constructor(public s: ServicioService) { }
 
 
